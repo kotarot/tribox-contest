@@ -152,8 +152,8 @@ java -jar wca/dist/TNoodle-WCA.jar  # TNoodle起動
 スクランブルデータ生成して、firebaseデータベースに書き込む。
 引数は、シーズン。例えば、20161 (2016年前半期)、20162 (2016年後半期)、20171 (2017年前半期)、......
 ```
-node --max-old-space-size=3000 contestmanager/create-season.js 20162
-node --max-old-space-size=3000 contestmanager/generate-fmcimages.js -s 20162
+node --max-old-space-size=6000 contestmanager/create-season.js 20162
+node --max-old-space-size=6000 contestmanager/generate-fmcimages.js -s 20162
 ```
 ※ `create-season.js` の中でresultsのスナップショットを取得するので `--max-old-space-size` でヒープサイズを上げておく必要がある（根本を直したい）。
 
@@ -165,7 +165,7 @@ node --max-old-space-size=3000 contestmanager/generate-fmcimages.js -s 20162
 
 次のコマンドを実行して `kaikin` テーブルの内容をチェックする。
 ```
-node --max-old-space-size=3000 contestmanager/tabulate-kaikin.js --season=20162
+node --max-old-space-size=6000 contestmanager/tabulate-kaikin.js --season=20162
 ```
 
 よければ、次のコマンドでポイント加算とメール送信。
@@ -177,7 +177,7 @@ node contestmanager/append-kaikin.js
 
 次のコマンドを実行して `winners` テーブルの内容をチェックする。
 ```
-node --max-old-space-size=3000 contestmanager/tabulate-winners.js --season=20162
+node --max-old-space-size=6000 contestmanager/tabulate-winners.js --season=20162
 ```
 
 よければ、次のコマンドでポイント加算とメール送信。
